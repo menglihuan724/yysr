@@ -11,6 +11,9 @@
 
 }
 .button{
-margin-top:50rpx;
-  width: 45%
+  color:aliceblue;
+  margin-top:50rpx;
+  width: 45%;
+  background-color: #2077FF;
+  border-radius: 50rpx;
 }

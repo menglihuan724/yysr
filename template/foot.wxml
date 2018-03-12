@@ -1,0 +1,6 @@
+<!--template/foot.wxml-->
+<template name="foot" >
+<view style="margin:30px 0 0 80px;" class="foot">
+<text style="color:#757575;font-size:24rpx">@  2018 terrymeng.com 一阵拂过科技 </text>
+</view>
+</template>
