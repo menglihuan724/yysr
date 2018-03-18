@@ -1,14 +1,39 @@
 {
   "pages": [
-    "pages/test/test",
+    "pages/cardlist/carlist",
     "pages/index/index",
     "pages/list/contentList",
     "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/video/video",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "尤哥的松茸",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#90724",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/icon/导航-首页.png"
+      },
+      {
+        "pagePath": "pages/list/contentList",
+        "text": "购买",
+        "iconPath": "image/icon/导航列表.png"
+      },
+      {
+        "pagePath": "pages/video/video",
+        "text": "介绍",
+        "iconPath": "image/icon/投影仪.png"
+      }
+    ]
   }
 }

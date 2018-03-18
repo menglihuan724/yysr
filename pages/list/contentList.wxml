@@ -1,3 +1,5 @@
+
+<import src="../../template/foot.wxml"/>
 <view class="header" style="display:{{displayHeader}}">
   <text class="introduce" decode='true'>
    &nbsp;&nbsp; 松茸，学名松口蘑，别名松蕈、合菌、台菌，隶属担子菌亚门、口蘑科，是松栎等树木外生的菌根真菌，具有独特的浓郁香味，是世界上珍稀名贵的天然药用菌，我国二级濒危保护物种.
@@ -11,10 +13,8 @@
     </block>
   </swiper>
 </view>
-<button bindtap="buy" class="button" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" > 购买尤哥大几把 </button>
-<view style="margin:50px 0 0 80px;">
-<text style="color:#757575;font-size:24rpx">@  2018 terrymeng.com 一阵拂过科技 </text>
-</view>
+<button bindtap="buy" class="button"  size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" > 购买尤哥大松茸 </button>
+<template is="foot"/>
 
 <!-- <button bindtap="changeIndicatorDots"> indicator-dots </button>
 <button bindtap="changeAutoplay"> autoplay </button>

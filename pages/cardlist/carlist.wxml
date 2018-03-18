@@ -1,0 +1,13 @@
+<!--pages/cardlist/carlist.wxml-->
+<!-- <view wx:for="{{cardlist}}">
+    <text>{{item.text}}</text> 
+   <view wx:if="{{item.picInfo}}"> 
+    <image src="{{item.picInfo.page_pic.url}}"></image>
+    <view wx:if="{{item.picInfo.media_info}}"><video src="{{item.picInfo.media_info.stream_url}}"></video></view>
+    <view wx:else>
+        {{item.picInfo.page_url}}
+    </view>
+  </view>
+</view> -->
+
+<iframe src="https://m.weibo.cn">123</iframe>

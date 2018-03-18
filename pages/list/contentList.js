@@ -17,17 +17,14 @@ Page({
   },
   buy:function(e){
     console.log('开始购买');
-    wx.requestPayment({
-      'timeStamp': '',
-      'nonceStr': '',
-      'package': '',
-      'signType': 'MD5',
-      'paySign': '',
-      'success': function (res) {
-      },
-      'fail': function (res) {
-      }
-    })
+   
+      wx.showToast({
+        title: '该功能未开通',
+        icon: 'success',
+        image:"../../image/icon/error-s.png",
+        duration: 2000
+      })
+    
   },
   changeIndicatorDots: function (e) {
     this.setData({

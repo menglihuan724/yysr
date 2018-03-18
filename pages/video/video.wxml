@@ -1,0 +1,11 @@
+<import src="../../template/foot.wxml"/>
+<text class="title">尤哥的农场</text>
+<view class="videoContainer">
+  <video  id="myVideo" src="http://ugcdl.video.gtimg.com/t0534p7q374.p712.1.mp4?sdtfrom=v1010&guid=9e11a2b16a0a827134fef4ba19c9d54d&vkey=056975E5EE9C8D510B599CFC8B92BE1E0A4F89B7945552FA100260239D5B95C6D7C554EA35D8959AB02BA5A91AA8471FD8249642DB379E4F876971385E5ADCA16ABACBB2839CEF04F5F37EDC407E02DC389649FF8AB18FF6F9E8E0338C588081BE357C07DFE7F0A104A4ED46556533D3F8D05A1B0D4FD467" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+  <view class="tc">
+    <!-- <button bindtap="bindButtonTap">获取视频</button> -->
+    <input bindblur="bindInputBlur" placeholder="欢迎吐槽"/>
+    <button bindtap="bindSendDanmu">发送弹幕</button>
+  </view>
+</view>
+<template is="foot"/>
