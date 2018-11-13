@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/test/test",
     "pages/index/index",
     "pages/cardlist/carlist",
     "pages/list/contentList",
     "pages/logs/logs",
-    "pages/video/video",
-    "pages/test/test"
+    "pages/video/video"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
