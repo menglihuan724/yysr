@@ -12,3 +12,13 @@
     </view>
 </view>
 </view> -->
+<<<<<<< HEAD
+=======
+<import src="../../template/calendar/index.wxml"/>
+<view >第{{drugStage}}阶段:正在进行</view>
+<view >服药时间段:<view wx:for="{{drugTimeList}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view></view>
+<view >服药计量：每次{{drugNum}}</view>
+<view class="calendar-wrap">
+   <template is="calendar" data="{{...calendar}}" />
+</view>
+>>>>>>> 785332af92dd45460569ad4461dcdf0a44c64102

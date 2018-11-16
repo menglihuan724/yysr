@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+html>
 <head>
-    <meta charset="UTF-8">
-    <title>flexDemo</title>
     <style>
         .HolyGrail {
             display: flex;
@@ -13,26 +10,21 @@
         header,
         footer {
             flex: 1;
-            background-color: brown;
-            color:white;
         }
 
         .HolyGrail-body {
             display: flex;
-            flex: 4;
+            flex: 1;
         }
 
         .HolyGrail-content {
             flex: 1;
-            background-color: black;
-            color:white;
         }
 
-        .HolyGrail-nav, .HolyGrail-ads {
+        .HolyGrail-nav,
+        .HolyGrail-ads {
             /* 两个边栏的宽度设为12em */
             flex: 0 0 12em;
-            background-color: blue;
-            color:white;
         }
 
         .HolyGrail-nav {
@@ -41,13 +33,15 @@
         }
     </style>
 </head>
+
 <body class="HolyGrail">
-<header>顶部</header>
-<div class="HolyGrail-body">
-    <main class="HolyGrail-content">内容</main>
-    <nav class="HolyGrail-nav">导航</nav>
-    <aside class="HolyGrail-ads">副导航</aside>
-</div>
-<footer>底部</footer>
+    <header>...</header>
+    <div class="HolyGrail-body">
+        <main class="HolyGrail-content">...</main>
+        <nav class="HolyGrail-nav">...</nav>
+        <aside class="HolyGrail-ads">...</aside>
+    </div>
+    <footer>...</footer>
 </body>
+
 </html>
