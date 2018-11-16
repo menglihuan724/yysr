@@ -5,10 +5,17 @@
 <!-- 因为 canvas-id 与前一个 canvas 重复，该 canvas 不会显示，并会发送一个错误事件到 AppService -->
 <!-- <canvas style="width: 400px; height: 500px;" canvas-id="secondCanvas" binderror="canvasIdErrorCallback"></canvas> -->
 <!--99乘法表-->
-<view wx:for="{{[1,2,3,4,5,6,8,9]}}" wx:for-item="i">
+<!-- <view wx:for="{{[1,2,3,4,5,6,8,9]}}" wx:for-item="i">
 <view wx:for="{{[1,2,3,4,5,6,8,9]}}" wx:for-item="j">
     <view wx:if="{{i<=j}}">
       {{i}}*{{j}}={{i*j}}
     </view>
 </view>
+</view> -->
+<import src="../../template/calendar/index.wxml"/>
+<view >第{{drugStage}}阶段:正在进行</view>
+<view >服药时间段:<view wx:for="{{drugTimeList}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view></view>
+<view >服药计量：每次{{drugNum}}</view>
+<view class="calendar-wrap">
+   <template is="calendar" data="{{...calendar}}" />
 </view>
