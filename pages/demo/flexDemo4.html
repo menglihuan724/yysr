@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flexDemo4</title>
+    <style>
+        .main{
+            display: flex;
+            width: 10vw;
+            height: 30vh;
+            background: black;
+            flex-flow: row wrap;
+            align-content: flex-start;
+        }
+        .child{
+            box-sizing: border-box;
+            background-color: white;
+            flex:0 0 25%;
+            height:10vh;
+            border:1px solid blue;
+
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <table>
+            <tr calss="child">
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
