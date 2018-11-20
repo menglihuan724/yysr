@@ -1,1 +1,7 @@
-{}
+{
+
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#50AF9A",
+        "navigationBarTitleText": "服药计划",
+        "navigationBarTextStyle": "white"
+}

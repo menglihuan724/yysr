@@ -1,3 +1,90 @@
-
 /* pages/test/test.wxss */
 @import '../../template/calendar/index.wxss';
+
+page {
+  background-color: #f6f6f7;
+}
+.drug-stage{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+  
+}
+.drug-stage-choose {
+  width: 20rpx;
+}
+
+.total-drug-info {
+  box-sizing: border-box;
+  width: 90%;
+  height: 510rpx;
+  margin: 35rpx 0 0 0rpx;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.total-drug-info-title {
+  height: 22%;
+  border-top-left-radius: 8rpx;
+  border-top-right-radius: 8rpx;
+  color: #ffff ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #50af9a;
+}
+
+.total-drug-info-content {
+  background-color: #ffff;
+  height: 77%;
+}
+
+.drug-info-content-row {
+  text-align: left;
+  font-size: 32rpx;
+  margin: 15rpx 0 10rpx 27rpx;
+}
+
+.detail-drug-info {
+  background-color: #ffff;
+  margin: 100rpx 0 0 0rpx;
+  box-sizing: border-box;
+  width: 90%;
+  height: 1300rpx;
+}
+
+.detail-drug-info-title {
+  height: 10%;
+  border-top-left-radius: 8rpx;
+  border-top-right-radius: 8rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #50af9a;
+}
+.drug-time{
+  display: flex;
+}
+.drug-time-list{
+  width: 30%;
+  flex-flow: row nowrap
+}
+.calendar-width{
+  width:600rpx;
+  margin-left: 50rpx;
+}
+.drugFoot{
+    background-color: #EB6877;
+    width:80%;
+    height: 7%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 10rpx;
+    margin:20rpx 0 0 50rpx;
+
+}

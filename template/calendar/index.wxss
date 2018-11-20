@@ -1,5 +1,6 @@
 /* pages/calendar/calendar.wxss */
 @import '../../utils/icon/ali.wxss';
+
 .box {
   display: flex;
 }
@@ -73,20 +74,19 @@
 .prev {
   text-align: right;
   height: 65rpx;
-  border-color: #BBE6DE;
-  border:solid;
-  border-top-left-radius: 20% ;
-  border-bottom-left-radius: 20% ;
+  border-color: #bbe6de;
+  border: solid;
+  border-top-left-radius: 20%;
+  border-bottom-left-radius: 20%;
   border-width: 5rpx 0rpx 5rpx 5rpx;
 }
 
 .next {
   height: 65rpx;
-  border-color: #BBE6DE;
-  border:solid;
-border-top-right-radius: 20% ;
-border-bottom-right-radius: 20% ;
-
+  border-color: #bbe6de;
+  border: solid;
+  border-top-right-radius: 20%;
+  border-bottom-right-radius: 20%;
   border-width: 5rpx 5rpx 5rpx 0rpx;
 }
 
@@ -102,10 +102,10 @@ border-bottom-right-radius: 20% ;
 
 .date-area {
   width: 750rpx;
-  height:65rpx;
+  height: 65rpx;
   text-align: center;
-  border-color: #BBE6DE;
-  border:solid;
+  border-color: #bbe6de;
+  border: solid;
   border-width: 5rpx;
 }
 
@@ -120,9 +120,8 @@ border-bottom-right-radius: 20% ;
   line-height: 104rpx;
 }
 
-.grid,
-.week {
-  width: 104rpx;
+.grid, .week {
+  width: 80rpx;
   height: 104rpx;
 }
 

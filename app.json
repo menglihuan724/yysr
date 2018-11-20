@@ -8,6 +8,10 @@
     "pages/video/video"
     
   ],
+  "usingComponents": {
+    "van-cell": "/plugin/dist/cell/index",
+    "van-cell-group": "/plugin/dist/cell-group/index"
+},
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

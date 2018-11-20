@@ -552,6 +552,13 @@ const conf = {
       } else {
         target = days[item.day - 1];
       }
+      
+      /* 单独根据点的类型来判断颜色 */
+      if(item.type==0){
+        target.todoLabelColor="#FF50AF9A";
+      }else{
+        target.todoLabelColor="#FFEB6877";
+      }
       if (target) target.showTodoLabel = !target.choosed;
     });
     const o = {
