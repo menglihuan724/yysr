@@ -1,17 +1,17 @@
 {
   "pages": [
+    "pages/drugstage/drugstage",
     "pages/test/test",
     "pages/index/index",
     "pages/cardlist/carlist",
     "pages/list/contentList",
     "pages/logs/logs",
     "pages/video/video"
-    
   ],
   "usingComponents": {
-    "van-cell": "/plugin/dist/cell/index",
-    "van-cell-group": "/plugin/dist/cell-group/index"
-},
+    "van-cell": "/miniprogram_npm/vant-weapp/cell/index",
+    "van-cell-group": "/miniprogram_npm/vant-weapp/cell-group/index"
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

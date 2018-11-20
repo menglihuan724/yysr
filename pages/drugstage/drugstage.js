@@ -1,15 +1,77 @@
 // pages/test/test.js
-import { Base64} from '../../miniprogram_npm/js-base64/index' //比较喜欢这种写法
-console.log(Base64);
+import initCalendar from '../../template/calendar/index';
+import { setTodoLabels,enableArea, enableDays } from '../../template/calendar/index';
 Page({
     /**
      * 页面的初始数据
      */
     data: {
 
-    
+        // 0关闭,1打开
+        drugStageStatus: 0,
+        drugStageDetail: {
+            "id": 1,
+            "stage": 6,
+            "time": "2018-05-10 至 2018-06-10",
+            "drugTimeList": ["10:00-12:00", "10:00-12:00", "10:00-12:00"],
+            "drugNum": 3,
+            "choosedStage": true
+        },
+        drugStage: [{
+            "id": 1,
+            "stage": 6,
+            "time": "2018-05-10 至 2018-06-10",
+            "drugNum": 3,
+            "drugTimeList": ["10:00-12:00", "10:00-12:00", "10:00-12:00"],
+            "choosedStage": true
+        },
+        {
+            "id": 2,
+            "stage": 7,
+            "time": "2018-05-10 至 2018-06-10",
+            "drugNum": 3,
+            "drugTimeList": ["10:00-12:00", "10:00-12:00", "10:00-12:00"],
+            "choosedStage": false
+        },
+        ],
+        totalDays: 80,
+        continuousDays: 7,
+        remainingDays: 7,
+        drugAdherence: '72%',
+        drugName: '阿斯品林',
     },
-    
+    clickStage: function (e) {
+        let id = e.currentTarget.id;
+        if (this.data.drugStageStatus == 0) {
+            this.openStage(id);
+        } else {
+            this.closeStage(id);
+        }
+    },
+    openStage: function (id) {
+        this.data.drugStage.filter(x =>
+            x.id != id
+        ).map(x =>
+            x.choosedStage = true
+            );
+        this.setData({
+            drugStageStatus: 1,
+            drugStage: this.data.drugStage
+        })
+    },
+    closeStage: function (id) {
+        this.data.drugStage.filter(x =>
+            x.id != id
+        ).map(x =>
+            x.choosedStage = false
+            );
+        this.setData({
+            drugStageStatus: 0,
+            drugStage: this.data.drugStage
+        })
+    },
+
+
     // 待办事项中若有 todoText 字段，则会在待办日期下面显示指定文字，如自定义节日等。
 
 
@@ -162,6 +224,30 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+
+
+        initCalendar(); // 使用默认配置初始化日历
+        // 指定可选时间区域
+        // enableArea(['2018-11-1', '2018-11-30']);
+        // 指定特定可选日期
+        enableDays([]);
+        setTodoLabels({
+            pos: 'bottom',
+            dotColor: '#000',
+            days: [{
+                year: 2018,
+                month: 11,
+                day: 1,
+                type:1
+            }, {
+                year: 2018,
+                month: 11,
+                day: 10,
+                type:0
+            }],
+        });
+        console.log(this.data.calendar.days);
+        console.log(this.data.calendar.todoLabels);
 
     },
 

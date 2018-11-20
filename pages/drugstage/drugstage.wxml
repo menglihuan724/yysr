@@ -1,0 +1,42 @@
+<import src="../../template/calendar/index.wxml" />
+<view class="drug-stage">
+  <view class="total-drug-info">
+    <view class="total-drug-info-title">
+      <text>整体服药信息</text>
+    </view>
+    <view class="total-drug-info-content">
+      <view class="drug-info-content-row">药物名称: {{drugName}}</view>
+      <view class="drug-info-content-row">总服药天数: {{totalDays}} 天</view>
+      <view class="drug-info-content-row">当前连续服药天数: {{continuousDays}} 天</view>
+      <view class="drug-info-content-row">距离药物服完还剩: {{remainingDays}} 天</view>
+      <view class="drug-info-content-row">药物依从性 :{{drugAdherence}}</view>
+      <view class="drug-info-content-row">您的药物依从性 一般 ,请务必重视起来,养成良好的服药习惯</view>
+    </view>
+  </view>
+  <view class="detail-drug-info">
+    <view class="detail-drug-info-title">
+      <text>阶段服药信息</text>
+    </view>
+    <van-cell-group>
+      <van-cell is-link arrow-direction="down" bind:click="clickStage" border="{{ false }}" wx:for="{{drugStage}}" wx:key="id" id="{{item.id}}" wx:if="{{item.choosedStage}}">
+        <view slot="title">
+          <span class="van-cell-text drug-stage-choose">第{{item.stage}}阶段: {{item.time}}</span>
+        </view>
+      </van-cell>
+    </van-cell-group>
+      <view class="drug-info-content-row">第{{drugStageDetail.stage}}阶段: 正在进行</view>
+      <view class="drug-info-content-row">服药时间段:</view>
+      <view class="drug-time drug-info-content-row" >
+        <view class="drug-time-list" wx:for="{{drugStageDetail.drugTimeList}}" wx:key="{{index}}" data-idx="{{index}}">
+        {{item}}
+        </view>
+      </view>
+      <view class="drug-info-content-row">服药计量：每次{{drugStageDetail.drugNum}}颗</view>
+    <view class="calendar-wrap calendar-width">
+      <template is="calendar" data="{{...calendar}}" />
+    </view>
+    <view class="drugFoot">
+      <text>结束当前服药计划</text>
+    </view>
+  </view>
+</view>
