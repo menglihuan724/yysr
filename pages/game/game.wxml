@@ -1,0 +1,11 @@
+<!-- <view calss="cover"> -->
+<!-- <cover-view class="questions" scroll-top="20rpx">
+    <cover-view>每日答题</cover-view>
+    <cover-view>题目内容</cover-view>
+  </cover-view> -->
+<view bind:tap="onOpen">今日答题</view>
+<van-popup custom-style="height: 800rpx; width:600rpx;" show="{{ show }}" overlay="{{ false }}" bind:close="onClose">
+  <view class="questions-title">每日答题</view>
+  <view class="questions-content">答题内容</view>
+</van-popup>
+<!-- </view> -->

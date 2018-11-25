@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/drugstage/drugstage",
+    "pages/game/game",
     "pages/test/test",
+    "pages/drugstage/drugstage",
     "pages/index/index",
     "pages/cardlist/carlist",
     "pages/list/contentList",
@@ -10,7 +11,8 @@
   ],
   "usingComponents": {
     "van-cell": "/miniprogram_npm/vant-weapp/cell/index",
-    "van-cell-group": "/miniprogram_npm/vant-weapp/cell-group/index"
+    "van-cell-group": "/miniprogram_npm/vant-weapp/cell-group/index",
+    "van-popup": "/miniprogram_npm/vant-weapp/popup/index"
   },
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,22 @@
+
+page {
+    background:rgba(80, 175, 154, 1);
+  }
+
+.questions{
+    display: flex;
+    height: 250rpx;
+    width:250rpx;
+    flex-direction: column;
+    align-items: center;
+    height: 800rpx;
+    width:600rpx;
+}
+.questions-title{
+    background:rgba(240, 206, 48, 1);
+    height: 10%;
+}
+.questions-content{
+    background:rgba(255, 247, 212, 1);
+    height: 90%;
+}

@@ -1,5 +1,5 @@
 // pages/test/test.js
-import { Base64} from '../../miniprogram_npm/js-base64/index' //比较喜欢这种写法
+import { Base64 } from '../../miniprogram_npm/js-base64/index' //比较喜欢这种写法
 console.log(Base64);
 Page({
     /**
@@ -7,11 +7,37 @@ Page({
      */
     data: {
 
-    
-    },
-    
-    // 待办事项中若有 todoText 字段，则会在待办日期下面显示指定文字，如自定义节日等。
 
+    },
+    countBinarySubstrings: function(s){
+        if(s.length<=1)return 0;
+        let pre=0;
+        let cur=1;
+        let count=0;
+        for(let i=1; i< s.length;i++){
+            if(s[i]===s[i-1])++cur;
+            else{
+                pre=cur;
+                cur=1;
+            }
+            if(pre>=cur) ++count;
+        }
+        return count;
+
+    },
+    numJewelsInStones: function (J, S) {
+
+        const map = new Map()
+        let count = 0
+        for (let j in J) {
+            map.set(J[j], 1)
+        }
+        console.log(map)
+        for (let s in S) {
+            map.has(S[s]) && ++count
+        }
+        return count
+    },
 
     text3: function () {
         var a = [2, 4, 1, 56, 55]
@@ -162,7 +188,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        console.log(this.countBinarySubstrings("1100110"))
     },
 
     /**
