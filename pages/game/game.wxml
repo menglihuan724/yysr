@@ -1,11 +1,17 @@
-<!-- <view calss="cover"> -->
-<!-- <cover-view class="questions" scroll-top="20rpx">
-    <cover-view>每日答题</cover-view>
-    <cover-view>题目内容</cover-view>
-  </cover-view> -->
 <view bind:tap="onOpen">今日答题</view>
-<van-popup custom-style="height: 800rpx; width:600rpx;" show="{{ show }}" overlay="{{ false }}" bind:close="onClose">
-  <view class="questions-title">每日答题</view>
-  <view class="questions-content">答题内容</view>
+<van-popup custom-style="height: 900rpx; width:600rpx;background:rgba(80, 175, 154, 1);" show="{{ show }}" overlay="{{ false }}" bind:close="onClose">
+  <view class="questions-title">
+    <text>每日答题</text>
+  </view>
+  <view class="questions-content">
+    <view class="question-seq">问答{{questions[0].seq}}/3</view>
+    <view class="question-content">{{questions[0].question}}</view>
+    <view class="answer-content" wx:for="{{questions[0].answerList}}" wx:key="{{index}}" data-idx="{{index}}">
+      <text>{{item.content}}</text>
+    </view>
+    <view class="reward-intro">答题奖励</view>
+    <view class="question-reward" >
+      能量:{{questions[0].power}} 慢乐币:{{questions[0].mlb}}
+    </view>
+  </view>
 </van-popup>
-<!-- </view> -->
