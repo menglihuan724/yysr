@@ -1,4 +1,4 @@
-
+@import '../../utils/icon/ali.wxss';
 page {
     background:rgba(80, 175, 154, 1);
   }
@@ -12,7 +12,6 @@ page {
 }
 .questions-title{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-top-left-radius: 10rpx;
@@ -20,6 +19,12 @@ page {
     background:rgba(240, 206, 48, 1);
     color: #ffff;
     height: 15%;
+}
+.question-close{
+    position: absolute;
+    right: 5%;
+    color: #ffff;
+
 }
 .questions-content{
     padding: 32rpx 32rpx 32rpx 32rpx;

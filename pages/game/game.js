@@ -4,73 +4,87 @@ Page({
      * 页面的初始数据
      */
     data: {
+        curSqe: 0,
         questions: [
             {
                 question: "老张肝脏移植术后13年，一直按照医嘱服用普乐可复作为唯一抗排斥药物；老张媳妇说都13年了排斥控得很好，可以试试每次剂量减半，老张应该____",
                 answerList: [
                     {
                         seq: 1,
-                        content:"尝试剂量减半",
-        
+                        content: "尝试剂量减半",
+
                     },
                     {
                         seq: 2,
-                        content:"不能擅自改药的剂量"
+                        content: "不能擅自改药的剂量"
                     },
-                    { 
-                        seq: 3 ,
-                        content:"先尝试剂量减半再停药"
+                    {
+                        seq: 3,
+                        content: "先尝试剂量减半再停药"
                     }
                 ],
-                power:10,
-                mlb:10,
-                seq:1
+                power: 10,
+                mlb: 10,
+                seq: 1
 
             },
             {
-                question: "老张肝脏移植术后13年，一直按照医嘱服用普乐可复作为唯一抗排斥药物；老张媳妇说都13年了排斥控得很好，可以试试每次剂量减半，老张应该____",
-                answer: [
+                question: "老张肝脏移植术后14年，一直按照医嘱服用普乐可复作为唯一抗排斥药物；老张媳妇说都13年了排斥控得很好，可以试试每次剂量减半，老张应该____",
+                answerList: [
                     {
                         seq: 1,
-                        content:"尝试剂量减半"
+                        content: "尝试剂量减半"
                     },
                     {
                         seq: 2,
-                        content:"不能擅自改药的剂量"
+                        content: "不能擅自改药的剂量"
                     },
-                    { 
-                        seq: 3 ,
-                        content:"先尝试剂量减半再停药"
+                    {
+                        seq: 3,
+                        content: "先尝试剂量减半再停药"
                     }
                 ],
-                power:10,
-                mlb:10,
-                seq:2
+                power: 20,
+                mlb: 20,
+                seq: 2
 
             },
             {
-                question: "老张肝脏移植术后13年，一直按照医嘱服用普乐可复作为唯一抗排斥药物；老张媳妇说都13年了排斥控得很好，可以试试每次剂量减半，老张应该____",
-                answer: [
+                question: "老张肝脏移植术后15年，一直按照医嘱服用普乐可复作为唯一抗排斥药物；老张媳妇说都13年了排斥控得很好，可以试试每次剂量减半，老张应该____",
+                answerList: [
                     {
                         seq: 1,
-                        content:"尝试剂量减半"
+                        content: "尝试剂量减半"
                     },
                     {
                         seq: 2,
-                        content:"不能擅自改药的剂量"
+                        content: "不能擅自改药的剂量"
                     },
-                    { 
-                        seq: 3 ,
-                        content:"先尝试剂量减半再停药"
+                    {
+                        seq: 3,
+                        content: "先尝试剂量减半再停药"
                     }
                 ],
-                power:10,
-                mlb:10,
-                seq:3
+                power: 30,
+                mlb: 30,
+                seq: 3
 
             },
         ],
         show: false
+    },
+    onNext() {
+        let index=this.data.curSqe+1
+        if(index==3){
+            wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 2000
+               })
+               wx.startPullDownRefresh()
+                this.onClose()
+        }
+        this.setData({ curSqe: index })
     },
     onOpen() {
         this.setData({ show: true });

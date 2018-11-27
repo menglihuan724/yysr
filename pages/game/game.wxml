@@ -2,16 +2,15 @@
 <van-popup custom-style="height: 900rpx; width:600rpx;background:rgba(80, 175, 154, 1);" show="{{ show }}" overlay="{{ false }}" bind:close="onClose">
   <view class="questions-title">
     <text>每日答题</text>
+    <view class="iconfont icon-guanbi question-close" bind:tap="onClose"></view>
   </view>
   <view class="questions-content">
-    <view class="question-seq">问答{{questions[0].seq}}/3</view>
-    <view class="question-content">{{questions[0].question}}</view>
-    <view class="answer-content" wx:for="{{questions[0].answerList}}" wx:key="{{index}}" data-idx="{{index}}">
-      <text>{{item.content}}</text>
+    <view class="question-seq">问答{{questions[curSqe].seq}}/3</view>
+    <view class="question-content">{{questions[curSqe].question}}</view>
+    <view class="answer-content" wx:for="{{questions[curSqe].answerList}}" wx:key="{{index}}" data-idx="{{index}}">
+      <text bind:tap="onNext">{{item.content}}</text>
     </view>
     <view class="reward-intro">答题奖励</view>
-    <view class="question-reward" >
-      能量:{{questions[0].power}} 慢乐币:{{questions[0].mlb}}
-    </view>
+    <view class="question-reward">能量:{{questions[curSqe].power}} 慢乐币:{{questions[curSqe].mlb}}</view>
   </view>
 </van-popup>

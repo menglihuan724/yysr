@@ -19,4 +19,5 @@
   .icon-caret-right:before { content: "\e8ec"; }
   
   .icon-caret-left:before { content: "\e8ed"; }
-  
+
+  .icon-guanbi:before { content: "\e672"; }

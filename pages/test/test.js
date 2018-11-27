@@ -9,18 +9,18 @@ Page({
 
 
     },
-    countBinarySubstrings: function(s){
-        if(s.length<=1)return 0;
-        let pre=0;
-        let cur=1;
-        let count=0;
-        for(let i=1; i< s.length;i++){
-            if(s[i]===s[i-1])++cur;
-            else{
-                pre=cur;
-                cur=1;
+    countBinarySubstrings: function (s) {
+        if (s.length <= 1) return 0;
+        let pre = 0;
+        let cur = 1;
+        let count = 0;
+        for (let i = 1; i < s.length; i++) {
+            if (s[i] === s[i - 1])++cur;
+            else {
+                pre = cur;
+                cur = 1;
             }
-            if(pre>=cur) ++count;
+            if (pre >= cur)++count;
         }
         return count;
 
@@ -37,6 +37,33 @@ Page({
             map.has(S[s]) && ++count
         }
         return count
+    },
+    pivotIndex: function (nums) {
+        let length =nums.length
+        let res=-1
+        if(length<=2){
+             return res
+        }
+
+        for (let index=0; index<length;index++){
+            if( res!=-1){
+                break
+            }
+            let leftCount=0
+            let rightCount=0
+            if(index>0){
+                leftCount=nums.slice(0,index).reduce(function (x, y) {
+                    return x + y;
+                },0);
+                rightCount=nums.slice(index+1,length).reduce(function (x, y) {
+                    return x + y;
+                },0);
+                if(leftCount==rightCount){
+                    res=index 
+                }
+            }
+        }
+        return res
     },
 
     text3: function () {
@@ -188,7 +215,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        console.log(this.countBinarySubstrings("1100110"))
+        console.log(this.pivotIndex([1,7,3,6,5,6]))
     },
 
     /**
