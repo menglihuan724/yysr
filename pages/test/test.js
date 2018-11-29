@@ -39,33 +39,55 @@ Page({
         return count
     },
     pivotIndex: function (nums) {
-        let length =nums.length
-        let res=-1
-        if(length<=2){
-             return res
+        let length = nums.length
+        let res = -1
+        if (length <= 2) {
+            return res
         }
 
-        for (let index=0; index<length;index++){
-            if( res!=-1){
+        for (let index = 0; index < length; index++) {
+            if (res != -1) {
                 break
             }
-            let leftCount=0
-            let rightCount=0
-            if(index>0){
-                leftCount=nums.slice(0,index).reduce(function (x, y) {
+            let leftCount = 0
+            let rightCount = 0
+            if (index > 0) {
+                leftCount = nums.slice(0, index).reduce(function (x, y) {
                     return x + y;
-                },0);
-                rightCount=nums.slice(index+1,length).reduce(function (x, y) {
+                }, 0);
+                rightCount = nums.slice(index + 1, length).reduce(function (x, y) {
                     return x + y;
-                },0);
-                if(leftCount==rightCount){
-                    res=index 
+                }, 0);
+                if (leftCount == rightCount) {
+                    res = index
                 }
             }
         }
         return res
     },
 
+    findFrequentTreeSum: function (root) {
+        var res = [], max = 0, map = {};
+        var findMax = function (root) {
+            let left, right;
+            if (!root) return 0;
+            left = findMax(root.left);
+            right = findMax(root.right);
+            sum = left + right + root.val;
+            map[sum] = (map[sum] || 0) + 1;
+            max = Math.max(map[sum], max);
+            return sum;
+        };
+        findMax(root);
+        for (var key in map) {
+            if (map[key] === max) {
+                res.push(parseInt(key));
+            };
+        };
+        return res;
+
+
+    },
     text3: function () {
         var a = [2, 4, 1, 56, 55]
         this.test2(a, 0, 4)
@@ -215,7 +237,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        console.log(this.pivotIndex([1,7,3,6,5,6]))
+        var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+        m.forEach(function (value, key, map) {
+            console.log(value);
+        });
     },
 
     /**
