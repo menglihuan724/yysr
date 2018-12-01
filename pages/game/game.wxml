@@ -1,4 +1,6 @@
 <view bind:tap="onOpen">今日答题</view>
+<input></input>
+<button bind:tap="sendMsg">发送</button>
 <van-popup custom-style="height: 900rpx; width:600rpx;background:rgba(80, 175, 154, 1);" show="{{ show }}" overlay="{{ false }}" bind:close="onClose">
   <view class="questions-title">
     <text>每日答题</text>
@@ -11,6 +13,8 @@
       <text bind:tap="onNext">{{item.content}}</text>
     </view>
     <view class="reward-intro">答题奖励</view>
-    <view class="question-reward">能量:{{questions[curSqe].power}} 慢乐币:{{questions[curSqe].mlb}}</view>
+    <view class="question-reward">
+      能量:{{questions[curSqe].power}} 慢乐币:{{questions[curSqe].mlb}}
+    </view>
   </view>
 </van-popup>

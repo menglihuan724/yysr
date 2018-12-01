@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/test/test",
     "pages/game/game",
+    "pages/test/test",
     "pages/drugstage/drugstage",
     "pages/index/index",
     "pages/cardlist/carlist",

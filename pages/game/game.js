@@ -74,15 +74,15 @@ Page({
         show: false
     },
     onNext() {
-        let index=this.data.curSqe+1
-        if(index==3){
+        let index = this.data.curSqe + 1
+        if (index == 3) {
             wx.showToast({
                 title: '成功',
                 icon: 'success',
                 duration: 2000
-               })
-               wx.startPullDownRefresh()
-                this.onClose()
+            })
+            wx.startPullDownRefresh()
+            this.onClose()
         }
         this.setData({ curSqe: index })
     },
@@ -96,7 +96,17 @@ Page({
         console.error(e.detail.errMsg)
     },
 
-
+    sendMsg() {
+        wx.sendSocketMessage({
+            data: "123",
+            fail:function(){
+                console.log("发送消息失败")
+            },
+            success:function(){
+                console.log("发送消息成功")
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -115,6 +125,37 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        wx.connectSocket({
+            url: 'wss://192.168.0.104:8000/ws',
+            data: {
+                userName: 'menglihuan',
+                password: '123456'
+            },
+            header: {
+                'content-type': 'application/json'
+            },
+            fail:function(){
+                console.log("服务器返回握手失败消息")
+            },
+            success:function(){
+                console.log("服务器返回握手成功消息")
+            }
+            // protocols: ['protocol1'],
+            //method: "GET"
+        });
+        wx.onSocketError(function(header){
+            console.log("socket链接已经异常")
+        });
+        wx.onSocketClose(function(header){
+            console.log("socket链接已经关闭")
+        });
+        wx.onSocketOpen(function(header){
+            console.log("socket链接成功")
+        });
+        wx.onSocketMessage(function(data){
+            debugger;
+            console.log("服务器返回数据"+JSON.stringify(data))
+        });
     },
 
     /**
