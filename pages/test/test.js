@@ -88,6 +88,29 @@ Page({
 
 
     },
+    validateStackSequences: function (pushed, popped) {
+        var checkArray = [];
+        var j = 0;
+        for (let i = 0; i < pushed.length; i++) {
+            const element = pushed[i];
+            checkArray.push(element);
+            while (checkArray.length != 0 && checkArray[checkArray.length - 1] == popped[j]) {
+                checkArray.pop();
+                j++;
+            }
+        }
+        return j == popped.length;
+    },
+    reverseWords: function (s) {
+        return s.split(" ").map(str => {
+            return  str.split("").reverse().join("")
+        }).join(" ")
+    },
+    findMedianSortedArrays : function(nums1, nums2) {
+        let nums=nums1.concat(nums2).sort((x,y) => x-y)
+        let midIndx=Math.floor(nums.length/2)
+        return nums.length%2==0?(nums[midIndx]+nums[midIndx-1])/2:nums[midIndx]
+    },
     text3: function () {
         var a = [2, 4, 1, 56, 55]
         this.test2(a, 0, 4)
@@ -241,6 +264,9 @@ Page({
         m.forEach(function (value, key, map) {
             console.log(value);
         });
+        console.log(this.reverseWords("you are terry"))
+        console.log(this.findMedianSortedArrays([1,3],
+            [2]))
     },
 
     /**
