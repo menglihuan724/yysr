@@ -103,13 +103,36 @@ Page({
     },
     reverseWords: function (s) {
         return s.split(" ").map(str => {
-            return  str.split("").reverse().join("")
+            return str.split("").reverse().join("")
         }).join(" ")
     },
-    findMedianSortedArrays : function(nums1, nums2) {
-        let nums=nums1.concat(nums2).sort((x,y) => x-y)
-        let midIndx=Math.floor(nums.length/2)
-        return nums.length%2==0?(nums[midIndx]+nums[midIndx-1])/2:nums[midIndx]
+    findMedianSortedArrays: function (nums1, nums2) {
+        let nums = nums1.concat(nums2).sort((x, y) => x - y)
+        let midIndx = Math.floor(nums.length / 2)
+        return nums.length % 2 == 0 ? (nums[midIndx] + nums[midIndx - 1]) / 2 : nums[midIndx]
+    },
+    reverseInteger: function (num) {
+        let max = 2147483647;
+        let min = -2147483648;
+        let res = 0;
+        while (num != 0) {
+            let pop = num % 10;
+            num = num>0?Math.floor(num / 10):Math.ceil(num / 10);
+            if (res > Math.floor(max / 10) || (res == Math.floor(max / 10) && pop > 7)) return 0;
+            if (res < Math.ceil(min / 10) || (res == Math.ceil(min / 10)&& pop < -8)) return 0;
+            res = res * 10 + pop
+        }
+        return res
+
+    },
+    swapPairs : function(head) {
+        if(head ==null || head.next==null){
+            return head
+        }
+        let n=head.next
+        head.next=swapPairs(head.next.next)
+        n.next=head
+        return n
     },
     text3: function () {
         var a = [2, 4, 1, 56, 55]
@@ -265,8 +288,9 @@ Page({
             console.log(value);
         });
         console.log(this.reverseWords("you are terry"))
-        console.log(this.findMedianSortedArrays([1,3],
+        console.log(this.findMedianSortedArrays([1, 3],
             [2]))
+       console.log(Math.ceil(-1.5))
     },
 
     /**
