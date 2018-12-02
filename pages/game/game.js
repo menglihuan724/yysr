@@ -97,16 +97,19 @@ Page({
     },
 
     sendMsg() {
+        // let text=new ArrayBuffer(10)
         wx.sendSocketMessage({
             data: "123",
-            fail:function(){
+            fail: function () {
                 console.log("发送消息失败")
             },
-            success:function(){
+            success: function () {
                 console.log("发送消息成功")
             }
         })
     },
+
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -134,27 +137,27 @@ Page({
             header: {
                 'content-type': 'application/json'
             },
-            fail:function(){
+            fail: function () {
                 console.log("服务器返回握手失败消息")
             },
-            success:function(){
+            success: function () {
                 console.log("服务器返回握手成功消息")
             }
             // protocols: ['protocol1'],
             //method: "GET"
         });
-        wx.onSocketError(function(header){
+        wx.onSocketError(function (header) {
             console.log("socket链接已经异常")
         });
-        wx.onSocketClose(function(header){
+        wx.onSocketClose(function (header) {
             console.log("socket链接已经关闭")
         });
-        wx.onSocketOpen(function(header){
+        wx.onSocketOpen(function (header) {
             console.log("socket链接成功")
         });
-        wx.onSocketMessage(function(data){
+        wx.onSocketMessage(function (data) {
             debugger;
-            console.log("服务器返回数据"+JSON.stringify(data))
+            console.log("服务器返回数据" + JSON.stringify(data))
         });
     },
 

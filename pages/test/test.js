@@ -117,21 +117,65 @@ Page({
         let res = 0;
         while (num != 0) {
             let pop = num % 10;
-            num = num>0?Math.floor(num / 10):Math.ceil(num / 10);
+            num = num > 0 ? Math.floor(num / 10) : Math.ceil(num / 10);
             if (res > Math.floor(max / 10) || (res == Math.floor(max / 10) && pop > 7)) return 0;
-            if (res < Math.ceil(min / 10) || (res == Math.ceil(min / 10)&& pop < -8)) return 0;
+            if (res < Math.ceil(min / 10) || (res == Math.ceil(min / 10) && pop < -8)) return 0;
             res = res * 10 + pop
         }
         return res
 
     },
-    swapPairs : function(head) {
-        if(head ==null || head.next==null){
+    networkDelayTime: function (times, N, K) {
+        // function Node(val) {
+        //     this.val = val;
+        //     this.next = [];
+        //     this.time = Infinity;
+        // }
+        var makeGraph = function (nodeNum, edges) {
+            let nodes = {}
+            for (let index = 1; index <= nodeNum; index++) {
+                nodes[index] = { val: index, next: [], time: Infinity }
+            }
+            edges.forEach(([u, v, w]) => {
+                nodes[u].next.push([nodes[v], w]);
+            });
+            return nodes;
+        }
+        var popSmallOne = function (list) {
+            let node = list.reduce(function (t, v, i, arr) {
+                if (t < v) {
+                    return t
+                } else {
+                    return v
+                }
+            });
+            return node
+        }
+        let graphs = makeGraph(N, times);
+        let unvist = Object.values(graphs)
+        graphs[K].time = 0;
+        let maxTime = 0;
+        while (unvist.length) {
+            let node = popSmallOne(unvist);
+            maxTime = node.time;
+            node.next.forEach(([next, weight]) => {
+                if ((node.time + weight) < next.time) {
+                    next.time = node.time + weight;
+                }
+            })
+
+        }
+        return maxTime === Infinity ? -1 : maxTime;
+
+
+    },
+    swapPairs: function (head) {
+        if (head == null || head.next == null) {
             return head
         }
-        let n=head.next
-        head.next=swapPairs(head.next.next)
-        n.next=head
+        let n = head.next
+        head.next = swapPairs(head.next.next)
+        n.next = head
         return n
     },
     text3: function () {
@@ -290,7 +334,9 @@ Page({
         console.log(this.reverseWords("you are terry"))
         console.log(this.findMedianSortedArrays([1, 3],
             [2]))
-       console.log(Math.ceil(-1.5))
+        console.log(Math.ceil(-1.5))
+
+        console.log(this.networkDelayTime([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2))
     },
 
     /**
