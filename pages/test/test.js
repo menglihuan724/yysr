@@ -134,7 +134,7 @@ Page({
         var makeGraph = function (nodeNum, edges) {
             let nodes = {}
             for (let index = 1; index <= nodeNum; index++) {
-                nodes[index] = { val: index, next: [], time: Infinity }
+                nodes[index] = {val:index,next:[],time:Infinity}
             }
             edges.forEach(([u, v, w]) => {
                 nodes[u].next.push([nodes[v], w]);
@@ -142,14 +142,8 @@ Page({
             return nodes;
         }
         var popSmallOne = function (list) {
-            let node = list.reduce(function (t, v, i, arr) {
-                if (t < v) {
-                    return t
-                } else {
-                    return v
-                }
-            });
-            return node
+            list.sort((a, b) => a.time - b.time);
+            return list.shift();
         }
         let graphs = makeGraph(N, times);
         let unvist = Object.values(graphs)
@@ -177,6 +171,19 @@ Page({
         head.next = swapPairs(head.next.next)
         n.next = head
         return n
+    },
+    orderlyQueue : function(S, K) {
+        debugger
+        if(K>1)return S.split("").sort().join("");
+        else{
+            let res=S;
+            for (let index = 0; index < S.length; index++) {
+                let element = S[index];
+                let NS=S.slice(index)+S.slice(0,index)
+                if(NS<res) res=NS
+            }
+            return res;
+        }
     },
     text3: function () {
         var a = [2, 4, 1, 56, 55]
@@ -335,8 +342,9 @@ Page({
         console.log(this.findMedianSortedArrays([1, 3],
             [2]))
         console.log(Math.ceil(-1.5))
-
+        console.log("a"<"10")
         console.log(this.networkDelayTime([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2))
+        console.log(this.orderlyQueue("cba",1))
     },
 
     /**

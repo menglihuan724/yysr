@@ -98,8 +98,9 @@ Page({
 
     sendMsg() {
         // let text=new ArrayBuffer(10)
+        let req=JSON.stringify({userName:'menglihuan',password:'12321',version:1})
         wx.sendSocketMessage({
-            data: "123",
+            data: req,
             fail: function () {
                 console.log("发送消息失败")
             },
