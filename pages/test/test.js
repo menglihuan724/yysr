@@ -198,6 +198,32 @@ Page({
         }
         return res;
     },
+    preorderTraversal: function () {
+        function TreeNode(val) {
+            this.val = val;
+            this.left = this.right = null;
+        }
+        let root=new TreeNode(3);
+        root.left=new TreeNode(1)
+        root.right=new TreeNode(2);
+        let stack = new Array();
+        let out = new Array();
+        if (!root) {
+            return out;
+        }
+        stack.push(root);
+        while (stack.length > 0) {
+            let node = stack.pop()
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            out.push(node.val);
+        }
+        return out;
+    },
     text3: function () {
         var a = [2, 4, 1, 56, 55]
         this.test2(a, 0, 4)
@@ -359,6 +385,7 @@ Page({
         console.log(this.networkDelayTime([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2))
         console.log(this.orderlyQueue("cba", 1))
         console.log(5 ^ 5);
+        console.log(this.preorderTraversal());
     },
 
     /**

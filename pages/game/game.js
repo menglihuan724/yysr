@@ -106,15 +106,15 @@ Page({
             },
             success: function () {
                 console.log("发送消息成功")
-                wx.closeSocket({
-                    code:1000,
-                    success:function(){
-                        console.log("close成功")
-                    },
-                    fail:function(){
-                        console.log("close失败")
-                    }
-                });
+                // wx.closeSocket({
+                //     code:1000,
+                //     success:function(){
+                //         console.log("close成功")
+                //     },
+                //     fail:function(){
+                //         console.log("close失败")
+                //     }
+                // });
             }
         })
     },
@@ -135,7 +135,7 @@ Page({
 
     connectSocket(){
         wx.connectSocket({
-            url: 'wss://192.168.0.104:8000/ws',
+            url: 'ws://192.168.0.104:8000/ws',
             data: {
                 userName: 'menglihuan',
                 password: '123456'
@@ -164,7 +164,6 @@ Page({
             console.log("socket链接已经异常:"+JSON.stringify(data))
         });
         wx.onSocketClose(function (header) {
-          
             console.log("socket链接已经关闭")
             //_this.connectSocket();
         });
@@ -172,7 +171,6 @@ Page({
             console.log("socket链接成功")
         });
         wx.onSocketMessage(function (data) {
-            debugger;
             console.log("服务器返回数据:" + JSON.stringify(data))
         });
     },
