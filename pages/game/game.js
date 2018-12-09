@@ -98,7 +98,7 @@ Page({
 
     sendMsg() {
         // let text=new ArrayBuffer(10)
-        let req=JSON.stringify({userName:'menglihuan',password:'12321',version:1,command:1})
+        let req = JSON.stringify({ userName: 'menglihuan', password: '12321', version: 1, command: 1 })
         wx.sendSocketMessage({
             data: req,
             fail: function () {
@@ -133,7 +133,7 @@ Page({
     onReady() {
     },
 
-    connectSocket(){
+    connectSocket() {
         wx.connectSocket({
             url: 'ws://192.168.0.104:8000/ws',
             data: {
@@ -158,10 +158,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        let _this=this;
+        let _this = this;
         _this.connectSocket();
         wx.onSocketError(function (data) {
-            console.log("socket链接已经异常:"+JSON.stringify(data))
+            console.log("socket链接已经异常:" + JSON.stringify(data))
         });
         wx.onSocketClose(function (header) {
             console.log("socket链接已经关闭")
@@ -171,8 +171,63 @@ Page({
             console.log("socket链接成功")
         });
         wx.onSocketMessage(function (data) {
-            console.log("服务器返回数据:" + JSON.stringify(data))
+            let res = JSON.parse(data.data)
+            console.log("服务器返回数据:" + res.userName)
         });
+
+        /* canvas */
+        const ctx = wx.createCanvasContext('pet')
+        // Draw coordinates
+        ctx.arc(100, 75, 50, 0, 2 * Math.PI)
+        ctx.setFillStyle('#EEEEEE')
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.moveTo(40, 75)
+        ctx.lineTo(160, 75)
+        ctx.moveTo(100, 15)
+        ctx.lineTo(100, 135)
+        ctx.setStrokeStyle('#AAAAAA')
+        ctx.stroke()
+
+        ctx.setFontSize(12)
+        ctx.setFillStyle('black')
+        ctx.fillText('0', 165, 78)
+        ctx.fillText('0.5*PI', 83, 145)
+        ctx.fillText('1*PI', 15, 78)
+        ctx.fillText('1.5*PI', 83, 10)
+
+        // Draw points
+        ctx.beginPath()
+        ctx.arc(100, 75, 2, 0, 2 * Math.PI)
+        ctx.setFillStyle('lightgreen')
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.arc(100, 25, 2, 0, 2 * Math.PI)
+        ctx.setFillStyle('blue')
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.arc(150, 75, 2, 0, 2 * Math.PI)
+        ctx.setFillStyle('red')
+        ctx.fill()
+
+        // Draw arc
+        ctx.beginPath()
+        ctx.arc(100, 75, 50, 0, 1.5 * Math.PI)
+        ctx.setStrokeStyle('#333333')
+        ctx.stroke()
+        ctx.beginPath()
+        const grd = ctx.createLinearGradient(50, 50, 150, 0)
+        grd.addColorStop(0, 'red')
+        grd.addColorStop(0.5,'blue')
+        grd.addColorStop(1, 'white')
+
+        // Fill with gradient
+        ctx.setFillStyle(grd)
+        ctx.fillRect(50, 50, 150, 80)
+        ctx.draw()
     },
 
     /**
