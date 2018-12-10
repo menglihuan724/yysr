@@ -18,4 +18,5 @@
     </view>
   </view>
 </van-popup>
-<canvas canvas-id="pet"></canvas>
+<canvas  canvas-id="pet"></canvas>
+<canvas  canvas-id="pet2"></canvas>
